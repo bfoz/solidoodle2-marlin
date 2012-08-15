@@ -1,0 +1,65 @@
+Marlin firmware for Solidoodle 2
+
+Previous official Solidoodle firmware was based on early version of Marlin and could not be altered to accomodate a Panelolu LCD screen and encoder without many errors. This version has configuration.h and configuration_adv.h altered to reflect all changes found in official Solidoodle firmware.
+
+Instructions:
+
+1. Runs with Arduino0022:
+
+-http://arduino.cc/hu/Main/Software
+
+
+
+2. Please use the Sanguino files from:
+
+-https://github.com/jmgiacalone/sanguino1284p
+
+Place the Sanguino folder in arduino-0022\hardware\
+
+Replace the avrdude.conf file in arduino-0022\hardware\tools\avr\etc
+
+This will make the 'Sanguino W/ ATmega644P' AND 'Sanguino W/ ATmega1284P' options appear in the Tools->Board menu.
+
+
+
+3. For standard Solidoodle 2 model, upload firmware as is and select the 'Sanguino W/ ATmega644P' option.
+
+
+
+4. If adding SDSL SDCARD reader or Panelolu LCD display and rotary encoder with SDSL, you will need to select the 'Sanguino W/ ATmega1284P' board. Please purchase a 1284P with a bootloader already in place.
+
+-http://www.emakershop.com/browse/listing?l=280
+
+
+
+5. If adding only SDSL, uncomment line 248 in configuration.h from:
+
+//#define SDSUPPORT
+
+to:
+
+#define SDSUPPORT
+
+Now compile and upload.
+
+-http://reprap.org/wiki/SDSL
+-http://www.emakershop.com/browse/listing?l=182
+
+See instructions above for wiring.
+
+
+
+6. If adding Panelolu + SDSL combo, uncomment line 259 from:
+
+//#define ULTIPANEL
+
+to:
+
+#define ULTIPANEL
+
+Now compile and upload.
+
+-http://www.emakershop.com/browse/listing?l=307
+-http://blog.think3dprint3d.com/2012/06/panelolu-in-depth.html
+
+See instructions in link above for wiring.
