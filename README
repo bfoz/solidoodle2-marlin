@@ -4,35 +4,28 @@ Previous official Solidoodle firmware was based on early version of Marlin and c
 
 Instructions:
 
-1. Runs with Arduino0022:
+1. You need to have the Arduino0022 IDE installed. If you have a later version, you'll need to downgrade.
 
 -http://arduino.cc/hu/Main/Software
 
 
-
-2. Please use the Sanguino files from:
+2. Clone the repository at
 
 -https://github.com/jmgiacalone/sanguino1284p
 
-Place the Sanguino folder in arduino-0022\hardware\
+and copy the included Sanguino directory to the hardware directory of your Arduino install. On Mac OS X, that would be ~/Documents/Arduino/hardware. On Windows it will be arduino-0022\hardware\.
 
-Replace the avrdude.conf file in arduino-0022\hardware\tools\avr\etc
+3. If you've upgrade the microcontroller to a 1284P, you'll need to add a new board description to the Arduino IDE. Close the Arduino IDE and then copy the file avrdude.conf from the sanguino1284p clone to your arduino-0022\hardware\tools\avr\etc" directory (That's ~/Documents/Arduino/hardware/tools/avr/etc on OS X).
 
-This will make the 'Sanguino W/ ATmega644P' AND 'Sanguino W/ ATmega1284P' options appear in the Tools->Board menu.
+Start the Arduino IDE and you should now see 'Sanguino W/ ATmega644P' AND 'Sanguino W/ ATmega1284P' options in the Tools->Board menu.
 
+4. For the standard Solidoodle 2 model with the 644P microcontroller, upload the firmware as is and select the 'Sanguino W/ ATmega644P' option.
 
-
-3. For standard Solidoodle 2 model, upload firmware as is and select the 'Sanguino W/ ATmega644P' option.
-
-
-
-4. If adding SDSL SDCARD reader or Panelolu LCD display and rotary encoder with SDSL, you will need to select the 'Sanguino W/ ATmega1284P' board. Please purchase a 1284P with a bootloader already in place.
+5. If you're adding an SDSL SDCARD reader, or Panelolu LCD display and rotary encoder with SDSL, you will need to select the 'Sanguino W/ ATmega1284P' board. Please purchase a 1284P with a bootloader already in place.
 
 -http://www.emakershop.com/browse/listing?l=280
 
-
-
-5. If adding only SDSL, uncomment line 248 in configuration.h from:
+6. If you're only adding SDSL, uncomment line 248 in configuration.h from:
 
 //#define SDSUPPORT
 
@@ -48,8 +41,7 @@ Now compile and upload.
 See instructions above for wiring.
 
 
-
-6. If adding Panelolu + SDSL combo, uncomment line 259 from:
+7. If you're adding the Panelolu + SDSL combo, uncomment line 259 from:
 
 //#define ULTIPANEL
 
@@ -62,4 +54,4 @@ Now compile and upload.
 -http://www.emakershop.com/browse/listing?l=307
 -http://blog.think3dprint3d.com/2012/06/panelolu-in-depth.html
 
-See instructions in link above for wiring.
+See instructions at the link above for wiring.
